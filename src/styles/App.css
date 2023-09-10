@@ -1,0 +1,14 @@
+#root {
+    display: flex;
+    justify-content: center;
+}
+.main-container {
+    max-width: 1500px;
+    width: 100%;
+}
+.editor {
+
+}
+.preview {
+
+}
