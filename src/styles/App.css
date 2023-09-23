@@ -1,14 +1,14 @@
-#root {
-    display: flex;
-    justify-content: center;
-}
 .main-container {
-    max-width: 1500px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1500px;
+  width: 100%;
 }
 .editor {
-
+  display: flex;
+  flex-direction: column;
+  flex: 0;
 }
 .preview {
-
+  flex: auto;
 }
