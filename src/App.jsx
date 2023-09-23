@@ -17,10 +17,25 @@ import AddInput from "./components/AddInput";
 // type = "text",
 // dataArr = null,
 
-function InputExperience({}) {
+function ExperienceList({ arr }) {
+  return arr.map((item) => {
+    return (
+      <div key={item.id}>
+        <button>
+          {item.position}<br/>
+          {item.organization}
+        </button>
+      </div>
+    );
+  });
+}
+
+function InputExperience({ experience }) {
   return (
     <div>
-
+      <ExperienceList
+        arr={experience}
+      />
     </div>
   )
 }
@@ -88,7 +103,7 @@ export default function App() {
   function changeSection(e) {
     // The data object is in the following format
     // category => find the matching ID => key: value
-    
+
     const key = e.target.dataset.key;
     const value = e.target.value;
     if (category === "education") {
@@ -148,15 +163,27 @@ export default function App() {
         <button onClick={selectCategory} data-key="workExperience">
           Work Experience
         </button>
-        {category === "projectExperience" &&
+        {category === "workExperience" &&
           <InputExperience
-            experience={projectExperience}
-
+            experience={workExperience}
+            changeSection={changeSection}
+            itemId={itemId}
+            selectItemId={selectItemId}
           />
         }
         <button onClick={selectCategory} data-key="projectExperience">
           Project Experience
         </button>
+        {category === "projectExperience" &&
+          <InputExperience
+            experience={projectExperience}
+            changeSection={changeSection}
+            itemId={itemId}
+            selectItemId={selectItemId}
+          />
+        }
+        <h1>{category}</h1>
+        <h1>{itemId}</h1>
       </div>
       <Preview
         personalInfo={personalInfo}

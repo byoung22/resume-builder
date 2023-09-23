@@ -49,7 +49,7 @@ const sample = {
     },
     {
       id: uuidv4(),
-      department: "Warehouse Worker",
+      department: "Warehouse",
       organization: "Amazon",
       position: "Fulfilment Center Associate I",
       startDate: "July 2020",
@@ -61,8 +61,8 @@ const sample = {
   projectExperience: [
     {
       id: uuidv4(),
-      department: "Titan Rocket",
-      organization: "CSUF",
+      department: "CSUF",
+      organization: "Titan Rocket",
       position: "Treasurer",
       startDate: "January 2021",
       endDate: "June 2022",
@@ -71,8 +71,8 @@ const sample = {
     },
     {
       id: uuidv4(),
-      department: "Baja SAE",
-      organization: "CSUF",
+      department: "CSUF",
+      organization: "Baja SAE",
       position: "Chasis Team",
       startDate: "September 2020",
       endDate: "June 2021",
@@ -83,7 +83,7 @@ const sample = {
       id: uuidv4(),
       department: "Computational Fluid Dynamics",
       organization: "Simvascular",
-      position: "Fluid Dynamics Student",
+      position: "Fluid Dynamics Lab Tester",
       startDate: "January 2022",
       endDate: "May 2022",
       description:
