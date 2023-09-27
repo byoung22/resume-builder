@@ -5,7 +5,6 @@ export default function AddInput({
   onChange,
   dataKey,
   type = "text",
-  dataArr = null,
 }) {
   return (
     <>

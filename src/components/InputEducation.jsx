@@ -19,7 +19,7 @@ export default function InputEducation({
   itemId,
   selectItemId,
 }) {
-  function findValue(id, info) {
+  function loadValue(id, info) {
     let value;
     education.forEach((school) => {
       if (school.id === id) value = school[info];
@@ -35,28 +35,28 @@ export default function InputEducation({
           <AddInput
             label={'School: '}
             id={"edu-school"}
-            value={findValue(itemId, "school")}
+            value={loadValue(itemId, "school")}
             onChange={changeSection}
             dataKey={"school"}
           />
           <AddInput
           label={'Degree: '}
             id={"edu-degree"}
-            value={findValue(itemId, "degree")}
+            value={loadValue(itemId, "degree")}
             onChange={changeSection}
             dataKey={"degree"}
           />
           <AddInput
             label={'Start Date: '}
             id={"edu-start"}
-            value={findValue(itemId, "startDate")}
+            value={loadValue(itemId, "startDate")}
             onChange={changeSection}
             dataKey={"startDate"}
           />
           <AddInput
             label={'End Date: '}
             id={"edu-end"}
-            value={findValue(itemId, "endDate")}
+            value={loadValue(itemId, "endDate")}
             onChange={changeSection}
             dataKey={"endDate"}
           />

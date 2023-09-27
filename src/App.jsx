@@ -5,40 +5,10 @@ import sample from "./sample-data";
 import InputPersonal from "./components/InputPersonal";
 import InputEducation from "./components/InputEducation";
 import InputTechnicalSkills from "./components/InputTechnicalSkills";
+import InputExperience from "./components/InputExperience";
 import { useState } from "react";
 // import { v4 as uuidv4 } from 'uuid';
-import AddInput from "./components/AddInput";
 
-// label,
-// id,
-// value,
-// onChange,
-// dataKey,
-// type = "text",
-// dataArr = null,
-
-function ExperienceList({ arr }) {
-  return arr.map((item) => {
-    return (
-      <div key={item.id}>
-        <button>
-          {item.position}<br/>
-          {item.organization}
-        </button>
-      </div>
-    );
-  });
-}
-
-function InputExperience({ experience }) {
-  return (
-    <div>
-      <ExperienceList
-        arr={experience}
-      />
-    </div>
-  )
-}
 
 export default function App() {
   // Change resume info
@@ -90,7 +60,7 @@ export default function App() {
   }
   function selectItemId(e) {
     setItemId(e.currentTarget.dataset.key);
-    console.log(e.currentTarget.dataset.key);
+    // console.log(e.currentTarget.dataset.key)
   }
 
   // Change data when input is manipulated
@@ -120,6 +90,21 @@ export default function App() {
       });
       setTechnicalSkills(copy);
     }
+    if (category === 'workExperience') {
+      const copy = [...workExperience];
+      copy.forEach((experience) => {
+        if (itemId === experience.id) experience[key] = value;
+      });
+      setWorkExperience(copy);
+    }
+    if (category === 'projectExperience') {
+      const copy = [...projectExperience];
+      copy.forEach((experience) => {
+        if (itemId === experience.id) experience[key] = value;
+      });
+      setProjectExperience(copy);
+    }
+    // console.table([category, itemId, key, value])
   }
 
   return (
@@ -182,8 +167,6 @@ export default function App() {
             selectItemId={selectItemId}
           />
         }
-        <h1>{category}</h1>
-        <h1>{itemId}</h1>
       </div>
       <Preview
         personalInfo={personalInfo}
