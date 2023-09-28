@@ -5,7 +5,8 @@ function ExperienceList({ arr, selectItemId }) {
     return (
       <div key={item.id}>
         <button onClick={selectItemId} data-key={item.id}>
-          {item.position}<br/>
+          {item.position}
+          <br />
           {item.organization}
         </button>
       </div>
@@ -13,11 +14,16 @@ function ExperienceList({ arr, selectItemId }) {
   });
 }
 
-export default function InputExperience({ experience, changeSection, itemId, selectItemId }) {
+export default function InputExperience({
+  experience,
+  changeSection,
+  itemId,
+  selectItemId,
+}) {
   function loadValue(id, info) {
     let value;
     experience.forEach((obj) => {
-      if(obj.id === id) value = obj[info]
+      if (obj.id === id) value = obj[info];
     });
     return value;
   }
@@ -28,52 +34,52 @@ export default function InputExperience({ experience, changeSection, itemId, sel
         itemId={itemId}
         selectItemId={selectItemId}
       />
-      {itemId !== null &&
+      {itemId !== null && (
         <>
           <AddInput
-            label={'Position: '}
-            id={itemId+'-position'}
-            value={loadValue(itemId, 'position')}
+            label={"Position: "}
+            id={itemId + "-position"}
+            value={loadValue(itemId, "position")}
             onChange={changeSection}
-            dataKey={'position'}
+            dataKey={"position"}
           />
           <AddInput
-            label={'Organization: '}
-            id={itemId+'-organization'}
-            value={loadValue(itemId, 'organization')}
+            label={"Organization: "}
+            id={itemId + "-organization"}
+            value={loadValue(itemId, "organization")}
             onChange={changeSection}
-            dataKey={'organization'}
+            dataKey={"organization"}
           />
           <AddInput
-            label={'Department: '}
-            id={itemId+'-department'}
-            value={loadValue(itemId, 'department')}
+            label={"Department: "}
+            id={itemId + "-department"}
+            value={loadValue(itemId, "department")}
             onChange={changeSection}
-            dataKey={'department'}
+            dataKey={"department"}
           />
           <AddInput
-            label={'Start Date: '}
-            id={itemId+'-startDate'}
-            value={loadValue(itemId, 'startDate')}
+            label={"Start Date: "}
+            id={itemId + "-startDate"}
+            value={loadValue(itemId, "startDate")}
             onChange={changeSection}
-            dataKey={'startDate'}
+            dataKey={"startDate"}
           />
           <AddInput
-            label={'End Date: '}
-            id={itemId+'-endDate'}
-            value={loadValue(itemId, 'endDate')}
+            label={"End Date: "}
+            id={itemId + "-endDate"}
+            value={loadValue(itemId, "endDate")}
             onChange={changeSection}
-            dataKey={'endDate'}
+            dataKey={"endDate"}
           />
-          <label htmlFor={itemId+"-description"}></label>
+          <label htmlFor={itemId + "-description"}></label>
           <textarea
-            id={itemId+"-description"}
-            value={loadValue(itemId, 'description')}
+            id={itemId + "-description"}
+            value={loadValue(itemId, "description")}
             onChange={changeSection}
-            data-key={'description'}
+            data-key={"description"}
           />
         </>
-      }
+      )}
     </div>
-  )
+  );
 }

@@ -5,7 +5,8 @@ function EducationList({ arr, selectItemId }) {
     return (
       <div key={school.id}>
         <button onClick={selectItemId} data-key={school.id}>
-          {school.school}<br/>
+          {school.school}
+          <br />
           {school.degree}
         </button>
       </div>
@@ -33,28 +34,28 @@ export default function InputEducation({
       {itemId !== null && (
         <>
           <AddInput
-            label={'School: '}
+            label={"School: "}
             id={"edu-school"}
             value={loadValue(itemId, "school")}
             onChange={changeSection}
             dataKey={"school"}
           />
           <AddInput
-          label={'Degree: '}
+            label={"Degree: "}
             id={"edu-degree"}
             value={loadValue(itemId, "degree")}
             onChange={changeSection}
             dataKey={"degree"}
           />
           <AddInput
-            label={'Start Date: '}
+            label={"Start Date: "}
             id={"edu-start"}
             value={loadValue(itemId, "startDate")}
             onChange={changeSection}
             dataKey={"startDate"}
           />
           <AddInput
-            label={'End Date: '}
+            label={"End Date: "}
             id={"edu-end"}
             value={loadValue(itemId, "endDate")}
             onChange={changeSection}

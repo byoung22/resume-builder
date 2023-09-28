@@ -27,14 +27,14 @@ const sample = {
     },
   ],
   technicalSkills: [
-    {id: uuidv4(), skill: "Solidworks"},
-    {id: uuidv4(), skill: "CATIA V5"},
-    {id: uuidv4(), skill: "Bilingual: Mandarin"},
-    {id: uuidv4(), skill: "Manufacturing"},
-    {id: uuidv4(), skill: "GD&T Drafting"},
-    {id: uuidv4(), skill: "ASME Standards"},
-    {id: uuidv4(), skill: "MATBAB"},
-    {id: uuidv4(), skill: "Microsoft Office"},
+    { id: uuidv4(), skill: "Solidworks" },
+    { id: uuidv4(), skill: "CATIA V5" },
+    { id: uuidv4(), skill: "Bilingual: Mandarin" },
+    { id: uuidv4(), skill: "Manufacturing" },
+    { id: uuidv4(), skill: "GD&T Drafting" },
+    { id: uuidv4(), skill: "ASME Standards" },
+    { id: uuidv4(), skill: "MATBAB" },
+    { id: uuidv4(), skill: "Microsoft Office" },
   ],
   workExperience: [
     {

@@ -11,7 +11,7 @@ export default function InputTechnicalSkills({
             <input
               onChange={changeSection}
               value={skill.skill}
-              data-key={'skill'}
+              data-key={"skill"}
             />
           </div>
         );
