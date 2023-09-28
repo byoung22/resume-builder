@@ -7,12 +7,11 @@ export default function InputTechnicalSkills({
     <div>
       {technicalSkills.map((skill) => {
         return (
-          <div key={skill[0]}>
+          <div key={skill.id} data-key={skill.id} onClick={selectItemId}>
             <input
               onChange={changeSection}
-              onFocus={selectItemId}
-              value={skill[1]}
-              data-key={skill[0]}
+              value={skill.skill}
+              data-key={'skill'}
             />
           </div>
         );

@@ -76,35 +76,21 @@ export default function App() {
 
     const key = e.target.dataset.key;
     const value = e.target.value;
-    if (category === "education") {
-      const copy = [...education];
-      copy.forEach((school) => {
-        if (itemId === school.id) school[key] = value;
+    
+    function findChangedItem(obj, cb) {
+      const copy = [...obj];
+      copy.forEach((item) => {
+        if (itemId === item.id) item[key] = value;
       });
-      setEducation(copy);
+      cb(copy);
     }
-    if (category === "technicalSkills") {
-      const copy = [...technicalSkills];
-      copy.forEach((skill) => {
-        if (itemId === skill[0]) skill[1] = value;
-      });
-      setTechnicalSkills(copy);
-    }
-    if (category === 'workExperience') {
-      const copy = [...workExperience];
-      copy.forEach((experience) => {
-        if (itemId === experience.id) experience[key] = value;
-      });
-      setWorkExperience(copy);
-    }
-    if (category === 'projectExperience') {
-      const copy = [...projectExperience];
-      copy.forEach((experience) => {
-        if (itemId === experience.id) experience[key] = value;
-      });
-      setProjectExperience(copy);
-    }
-    // console.table([category, itemId, key, value])
+
+    if (category === "education") findChangedItem(education, setEducation);
+    if (category === "technicalSkills") findChangedItem(technicalSkills, setTechnicalSkills);
+    if (category === 'workExperience') findChangedItem(workExperience, setWorkExperience);
+    if (category === 'projectExperience') findChangedItem(projectExperience, setProjectExperience);
+
+    // console.table({category: category, itemId: itemId, key: key, value: value})
   }
 
   return (

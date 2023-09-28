@@ -52,8 +52,8 @@ function Education({ education }) {
 function SkillList({ arr }) {
   return arr.map((skill) => {
     return (
-      <div key={skill[0]} className="skill">
-        - {skill[1]}
+      <div key={skill.id} className="skill">
+        - {skill.skill}
       </div>
     );
   });
