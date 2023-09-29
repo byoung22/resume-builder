@@ -1,14 +1,15 @@
 import AddInput from "./AddInput";
 
-function EducationList({ arr, selectItemId }) {
+function EducationList({ arr, selectItemId, deleteSection }) {
   return arr.map((school) => {
     return (
       <div key={school.id}>
-        <button onClick={selectItemId} data-key={school.id}>
+        <button onClick={selectItemId} data-id={school.id}>
           {school.school}
           <br />
           {school.degree}
         </button>
+        <button onClick={() => deleteSection(school.id)}>-</button>
       </div>
     );
   });
@@ -17,6 +18,7 @@ function EducationList({ arr, selectItemId }) {
 export default function InputEducation({
   education,
   changeSection,
+  deleteSection,
   itemId,
   selectItemId,
 }) {
@@ -30,7 +32,8 @@ export default function InputEducation({
 
   return (
     <div>
-      <EducationList arr={education} selectItemId={selectItemId} />
+      <EducationList arr={education} selectItemId={selectItemId} deleteSection={deleteSection}/>
+      <button>+</button>
       {itemId !== null && (
         <>
           <AddInput
@@ -63,7 +66,6 @@ export default function InputEducation({
           />
         </>
       )}
-      <button>+</button>
     </div>
   );
 }

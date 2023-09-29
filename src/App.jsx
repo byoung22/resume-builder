@@ -51,10 +51,12 @@ export default function App() {
   // Change selection
   function selectCategory(e) {
     setCategory(e.target.dataset.key);
-    setItemId(null); // Selecting another category unfocuses item
+    // Selecting another category unfocuses item
+    setItemId(null);
   }
   function selectItemId(e) {
-    setItemId(e.currentTarget.dataset.key);
+    // Selecting the same item unfocuses the item
+    setItemId(e.target.dataset.id);
   }
 
   // Change data
@@ -65,8 +67,8 @@ export default function App() {
     const key = e.target.dataset.key;
     const value = e.target.value;
 
-    function findChangedItem(obj, cb) {
-      const copy = [...obj];
+    function findChangedItem(arr, cb) {
+      const copy = [...arr];
       copy.forEach((item) => {
         if (itemId === item.id) item[key] = value;
       });
@@ -80,6 +82,23 @@ export default function App() {
     if (category === "projectExperience") findChangedItem(projectExperience, setProjectExperience);
 
     // console.table({category: category, itemId: itemId, key: key, value: value})
+  }
+  function deleteSection(deletedId) {
+    function findItem(arr, cb) {
+      const copy = [];
+      arr.forEach((item) => {
+        if (deletedId !== item.id) copy.push(item);
+      });
+      cb(copy);
+    }
+
+    if (category === "education") findItem(education, setEducation);
+    if (category === "technicalSkills") findItem(technicalSkills, setTechnicalSkills);
+    if (category === "workExperience") findItem(workExperience, setWorkExperience);
+    if (category === "projectExperience") findItem(projectExperience, setProjectExperience);
+  
+    // If you delete the selected item, the form will need to be empty
+    if(deletedId === itemId) setItemId(null);
   }
 
   return (
@@ -106,6 +125,7 @@ export default function App() {
           <InputEducation
             education={education}
             changeSection={changeSection}
+            deleteSection={deleteSection}
             itemId={itemId}
             selectItemId={selectItemId}
           />
@@ -117,6 +137,7 @@ export default function App() {
           <InputTechnicalSkills
             technicalSkills={technicalSkills}
             changeSection={changeSection}
+            deleteSection={deleteSection}
             selectItemId={selectItemId}
           />
         )}
@@ -127,6 +148,7 @@ export default function App() {
           <InputExperience
             experience={workExperience}
             changeSection={changeSection}
+            deleteSection={deleteSection}
             itemId={itemId}
             selectItemId={selectItemId}
           />
@@ -138,6 +160,7 @@ export default function App() {
           <InputExperience
             experience={projectExperience}
             changeSection={changeSection}
+            deleteSection={deleteSection}
             itemId={itemId}
             selectItemId={selectItemId}
           />

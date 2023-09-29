@@ -1,14 +1,15 @@
 import AddInput from "./AddInput";
 
-function ExperienceList({ arr, selectItemId }) {
+function ExperienceList({ arr, selectItemId, deleteSection }) {
   return arr.map((item) => {
     return (
       <div key={item.id}>
-        <button onClick={selectItemId} data-key={item.id}>
+        <button onClick={selectItemId} data-id={item.id}>
           {item.position}
           <br />
           {item.organization}
         </button>
+        <button onClick={() => deleteSection(item.id)}>-</button>
       </div>
     );
   });
@@ -17,6 +18,7 @@ function ExperienceList({ arr, selectItemId }) {
 export default function InputExperience({
   experience,
   changeSection,
+  deleteSection,
   itemId,
   selectItemId,
 }) {
@@ -33,7 +35,9 @@ export default function InputExperience({
         arr={experience}
         itemId={itemId}
         selectItemId={selectItemId}
+        deleteSection={deleteSection}
       />
+      <button>+</button>
       {itemId !== null && (
         <>
           <AddInput
