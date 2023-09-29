@@ -7,7 +7,6 @@ import InputEducation from "./components/InputEducation";
 import InputTechnicalSkills from "./components/InputTechnicalSkills";
 import InputExperience from "./components/InputExperience";
 import { useState } from "react";
-// import { v4 as uuidv4 } from 'uuid';
 
 export default function App() {
   // Initialize selection
@@ -51,12 +50,12 @@ export default function App() {
   // Change selection
   function selectCategory(e) {
     setCategory(e.target.dataset.key);
-    // Selecting another category unfocuses item
-    setItemId(null);
+    setItemId(null);  // Selecting another category unfocuses item
   }
   function selectItemId(e) {
-    // Selecting the same item unfocuses the item
-    setItemId(e.target.dataset.id);
+    // Selecting the same item unfocuses the item IF NOT ON TECHNICAL SKILLS
+    const id = e.target.dataset.id;
+    (id === itemId && category !== 'technicalSkills') ? setItemId(null) : setItemId(id);
   }
 
   // Change data
@@ -81,7 +80,7 @@ export default function App() {
     if (category === "workExperience") findChangedItem(workExperience, setWorkExperience);
     if (category === "projectExperience") findChangedItem(projectExperience, setProjectExperience);
 
-    // console.table({category: category, itemId: itemId, key: key, value: value})
+    console.table({category: category, itemId: itemId, key: key, value: value})
   }
   function deleteSection(deletedId) {
     function findItem(arr, cb) {
@@ -99,6 +98,19 @@ export default function App() {
   
     // If you delete the selected item, the form will need to be empty
     if(deletedId === itemId) setItemId(null);
+  }
+  function addSection(newObj) {
+    function pushNewObj(arr, cb) {
+      const copy = [...arr];
+      copy.push(newObj);
+      cb(copy);
+      setItemId(newObj.id);
+    }
+
+    if (category === "education") pushNewObj(education, setEducation);
+    if (category === "technicalSkills") pushNewObj(technicalSkills, setTechnicalSkills);
+    if (category === "workExperience") pushNewObj(workExperience, setWorkExperience);
+    if (category === "projectExperience") pushNewObj(projectExperience, setProjectExperience);
   }
 
   return (
@@ -126,6 +138,7 @@ export default function App() {
             education={education}
             changeSection={changeSection}
             deleteSection={deleteSection}
+            addSection={addSection}
             itemId={itemId}
             selectItemId={selectItemId}
           />
@@ -138,6 +151,7 @@ export default function App() {
             technicalSkills={technicalSkills}
             changeSection={changeSection}
             deleteSection={deleteSection}
+            addSection={addSection}
             selectItemId={selectItemId}
           />
         )}
@@ -149,6 +163,7 @@ export default function App() {
             experience={workExperience}
             changeSection={changeSection}
             deleteSection={deleteSection}
+            addSection={addSection}
             itemId={itemId}
             selectItemId={selectItemId}
           />
@@ -161,6 +176,7 @@ export default function App() {
             experience={projectExperience}
             changeSection={changeSection}
             deleteSection={deleteSection}
+            addSection={addSection}
             itemId={itemId}
             selectItemId={selectItemId}
           />

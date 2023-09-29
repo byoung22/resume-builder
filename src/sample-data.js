@@ -15,7 +15,6 @@ const sample = {
       school: "California State University, Fullerton",
       startDate: "August 2018",
       endDate: "May 2022",
-      editing: false,
     },
     {
       id: uuidv4(),
@@ -23,7 +22,6 @@ const sample = {
       school: "University of Southern California",
       startDate: "January 2024",
       endDate: "December 2026",
-      editing: false,
     },
   ],
   technicalSkills: [

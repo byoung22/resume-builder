@@ -1,4 +1,5 @@
 import AddInput from "./AddInput";
+import { v4 as uuidv4 } from 'uuid';
 
 function EducationList({ arr, selectItemId, deleteSection }) {
   return arr.map((school) => {
@@ -19,9 +20,11 @@ export default function InputEducation({
   education,
   changeSection,
   deleteSection,
+  addSection,
   itemId,
   selectItemId,
 }) {
+  // Form manipulation
   function loadValue(id, info) {
     let value;
     education.forEach((school) => {
@@ -29,11 +32,21 @@ export default function InputEducation({
     });
     return value;
   }
+  function addValue() {
+    const obj = {
+      id: uuidv4(),
+      degree: '',
+      school: '',
+      startDate: '',
+      endDate: ''
+    }
+    addSection(obj);
+  }
 
   return (
     <div>
       <EducationList arr={education} selectItemId={selectItemId} deleteSection={deleteSection}/>
-      <button>+</button>
+      <button onClick={addValue}>+</button>
       {itemId !== null && (
         <>
           <AddInput

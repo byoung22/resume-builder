@@ -1,9 +1,19 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export default function InputTechnicalSkills({
   technicalSkills,
   changeSection,
   deleteSection,
+  addSection,
   selectItemId,
 }) {
+  function addValue() {
+    const obj = {
+      id: uuidv4(),
+      skill: ''
+    }
+    addSection(obj)
+  }
   return (
     <div>
       {technicalSkills.map((skill) => {
@@ -20,7 +30,7 @@ export default function InputTechnicalSkills({
           </div>
         );
       })}
-      <button>+</button>
+      <button onClick={addValue}>+</button>
     </div>
   );
 }

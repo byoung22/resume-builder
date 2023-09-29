@@ -1,4 +1,5 @@
 import AddInput from "./AddInput";
+import { v4 as uuidv4 } from 'uuid';
 
 function ExperienceList({ arr, selectItemId, deleteSection }) {
   return arr.map((item) => {
@@ -19,15 +20,29 @@ export default function InputExperience({
   experience,
   changeSection,
   deleteSection,
+  addSection,
   itemId,
   selectItemId,
 }) {
+  // Form manipulation
   function loadValue(id, info) {
     let value;
     experience.forEach((obj) => {
       if (obj.id === id) value = obj[info];
     });
     return value;
+  }
+  function addValue() {
+    const obj = {
+      id: uuidv4(),
+      department: '',
+      organization: '',
+      position: '',
+      startDate: '',
+      endDate: '',
+      description: ''
+    }
+    addSection(obj)
   }
   return (
     <div>
@@ -37,7 +52,7 @@ export default function InputExperience({
         selectItemId={selectItemId}
         deleteSection={deleteSection}
       />
-      <button>+</button>
+      <button onClick={addValue}>+</button>
       {itemId !== null && (
         <>
           <AddInput
