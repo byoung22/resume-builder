@@ -16,7 +16,7 @@ input {
   border-radius: 3rem;
 
   .container {
-    margin: 1rem;
+    margin-bottom: 1rem;
     :first-child{
       border-radius: 1rem 0 0 1rem;
     }
