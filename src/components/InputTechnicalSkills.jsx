@@ -15,10 +15,10 @@ export default function InputTechnicalSkills({
     addSection(obj)
   }
   return (
-    <div>
+    <div className='form'>
       {technicalSkills.map((skill) => {
         return (
-          <div key={skill.id}>
+          <div className='item-container' key={skill.id}>
             <input
               onFocus={selectItemId}
               onChange={changeSection}
@@ -30,7 +30,7 @@ export default function InputTechnicalSkills({
           </div>
         );
       })}
-      <button onClick={addValue}>+</button>
+      <button onClick={addValue} className='add-button'>+</button>
     </div>
   );
 }

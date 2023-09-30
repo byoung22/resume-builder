@@ -1,14 +1,41 @@
-.main-container {
-  display: flex;
-  justify-content: center;
-  max-width: 1500px;
-  width: 100%;
+.editor,
+button,
+input {
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .editor {
   display: flex;
   flex-direction: column;
-  flex: 0;
+  flex: 1;
+  padding: 2rem;
+
+  .reset-container {
+    display: flex;
+    >button {
+      flex: 1;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .add-button {
+    width: 100%;
+  }
+  .item-container {
+    display: flex;
+    > input,
+    > .item {
+      flex: 1;
+    }
+  }
 }
-.preview {
-  flex: auto;
+
+@media (max-width: 600px) {
+  :root {
+    .main-container {
+      flex-direction: column;
+    }
+  }
 }

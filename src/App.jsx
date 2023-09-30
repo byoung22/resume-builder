@@ -80,7 +80,8 @@ export default function App() {
     if (category === "workExperience") findChangedItem(workExperience, setWorkExperience);
     if (category === "projectExperience") findChangedItem(projectExperience, setProjectExperience);
 
-    console.table({category: category, itemId: itemId, key: key, value: value})
+    // Uncomment to check if its targetting the right property
+    // console.table({category: category, itemId: itemId, key: key, value: value})
   }
   function deleteSection(deletedId) {
     function findItem(arr, cb) {

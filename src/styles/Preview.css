@@ -1,7 +1,7 @@
-:root {
+.preview {
+  flex: 2;
   --grey: #404040;
 }
-
 .section-header,
 .header-bot,
 .skill,
@@ -79,24 +79,14 @@
   white-space: pre-wrap;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .paper {
-    max-width: 90vw; /* use a portion of the viewport width */
+    max-width: 544px; /* 2/3 ratio of 816px (CSS pixels per inch) */
   }
-  /*
-    .paper-content {
-        font-size: 0.9rem;  adjust as necessary 
-    }
-    */
 }
 
 @media (max-width: 600px) {
   .paper {
     max-width: 100vw; /* allow the paper to fill the full width of the screen */
   }
-  /*
-    .paper-content {
-        font-size: 0.9rem;  adjust as necessary 
-    }
-    */
 }

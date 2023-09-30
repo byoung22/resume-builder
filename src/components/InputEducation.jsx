@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 function EducationList({ arr, selectItemId, deleteSection }) {
   return arr.map((school) => {
     return (
-      <div key={school.id}>
-        <button onClick={selectItemId} data-id={school.id}>
+      <div className="item-container" key={school.id}>
+        <button className="item" onClick={selectItemId} data-id={school.id}>
           {school.school}
           <br />
           {school.degree}
@@ -44,11 +44,11 @@ export default function InputEducation({
   }
 
   return (
-    <div>
+    <div className="education-section">
       <EducationList arr={education} selectItemId={selectItemId} deleteSection={deleteSection}/>
-      <button onClick={addValue}>+</button>
+      <button onClick={addValue} className="add-button">+</button>
       {itemId !== null && (
-        <>
+        <div className="form">
           <AddInput
             label={"School: "}
             id={"edu-school"}
@@ -77,7 +77,7 @@ export default function InputEducation({
             onChange={changeSection}
             dataKey={"endDate"}
           />
-        </>
+        </div>
       )}
     </div>
   );

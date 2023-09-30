@@ -122,6 +122,31 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+:root {
+  --secondary-color: #f3f4f6;
+  font-family:'Times New Roman', Times, serif;
+}
 * {
   box-sizing: border-box;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1500px;
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  :root {
+    font-size: 11px;
+  }
+}
+@media (max-width: 800px) {
+  :root {
+    font-size: 1.4vw;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    font-size: 2vw;
+  }
 }

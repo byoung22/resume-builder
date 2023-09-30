@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 function ExperienceList({ arr, selectItemId, deleteSection }) {
   return arr.map((item) => {
     return (
-      <div key={item.id}>
-        <button onClick={selectItemId} data-id={item.id}>
+      <div key={item.id} className="item-container">
+        <button onClick={selectItemId} data-id={item.id} className="item">
           {item.position}
           <br />
           {item.organization}
@@ -52,9 +52,9 @@ export default function InputExperience({
         selectItemId={selectItemId}
         deleteSection={deleteSection}
       />
-      <button onClick={addValue}>+</button>
+      <button onClick={addValue} className="add-button">+</button>
       {itemId !== null && (
-        <>
+        <div className="form">
           <AddInput
             label={"Position: "}
             id={itemId + "-position"}
@@ -90,14 +90,14 @@ export default function InputExperience({
             onChange={changeSection}
             dataKey={"endDate"}
           />
-          <label htmlFor={itemId + "-description"}></label>
+          <label htmlFor={itemId + "-description"}>Description: </label>
           <textarea
             id={itemId + "-description"}
             value={loadValue(itemId, "description")}
             onChange={changeSection}
             data-key={"description"}
           />
-        </>
+        </div>
       )}
     </div>
   );
