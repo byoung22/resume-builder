@@ -117,7 +117,7 @@ export default function App() {
   return (
     <div className="main-container">
       <div className="editor">
-        <div className="reset-container">
+        <div className="reset-container container">
           <button onClick={reset}>Reset</button>
           <button onClick={loadSample}>Load Example</button>
         </div>

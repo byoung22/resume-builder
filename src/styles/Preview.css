@@ -55,7 +55,7 @@
   font-weight: 800;
 }
 .header-divide {
-  height: 2px;
+  height: 0.1rem;
   background-color: black;
   width: 100%;
   margin: 0.2rem 0;

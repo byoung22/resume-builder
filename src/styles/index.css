@@ -134,6 +134,7 @@ table {
   justify-content: center;
   max-width: 1500px;
   width: 100%;
+  background-color: var(--secondary-color);
 }
 @media (max-width: 1200px) {
   :root {

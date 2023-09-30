@@ -4,12 +4,34 @@ input {
   font-size: 1.2rem;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .editor {
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin: 2rem;
   padding: 2rem;
+  background-color: white;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 3rem;
 
+  .container {
+    margin: 1rem;
+    :first-child{
+      border-radius: 1rem 0 0 1rem;
+    }
+    :last-child{
+      border-radius: 0 1rem 1rem 0;
+    }
+    > button {
+      padding: 1rem;
+      border: 0;
+      background-color: #f3f4f6;
+    }
+    :hover {
+      background-color: #dbdcdf;
+    }
+  }
   .reset-container {
     display: flex;
     >button {
@@ -31,6 +53,7 @@ input {
     }
   }
 }
+
 
 @media (max-width: 600px) {
   :root {
