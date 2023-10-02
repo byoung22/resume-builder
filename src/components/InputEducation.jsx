@@ -1,5 +1,5 @@
 import AddInput from "./AddInput";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 function EducationList({ arr, selectItemId, deleteSection }) {
   return arr.map((school) => {
@@ -10,7 +10,9 @@ function EducationList({ arr, selectItemId, deleteSection }) {
           <br />
           {school.degree}
         </button>
-        <button onClick={() => deleteSection(school.id)}>-</button>
+        <button onClick={() => deleteSection(school.id)} className="delete">
+          🗑️
+        </button>
       </div>
     );
   });
@@ -35,18 +37,24 @@ export default function InputEducation({
   function addValue() {
     const obj = {
       id: uuidv4(),
-      degree: '',
-      school: '',
-      startDate: '',
-      endDate: ''
-    }
+      degree: "",
+      school: "",
+      startDate: "",
+      endDate: "",
+    };
     addSection(obj);
   }
 
   return (
-    <div className="education-section">
-      <EducationList arr={education} selectItemId={selectItemId} deleteSection={deleteSection}/>
-      <button onClick={addValue} className="add-button">+</button>
+    <div className="section">
+      <EducationList
+        arr={education}
+        selectItemId={selectItemId}
+        deleteSection={deleteSection}
+      />
+      <button onClick={addValue} className="add-button">
+        +
+      </button>
       {itemId !== null && (
         <div className="form">
           <AddInput

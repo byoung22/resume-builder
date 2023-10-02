@@ -50,12 +50,14 @@ export default function App() {
   // Change selection
   function selectCategory(e) {
     setCategory(e.target.dataset.key);
-    setItemId(null);  // Selecting another category unfocuses item
+    setItemId(null); // Selecting another category unfocuses item
   }
   function selectItemId(e) {
     // Selecting the same item unfocuses the item IF NOT ON TECHNICAL SKILLS
     const id = e.target.dataset.id;
-    (id === itemId && category !== 'technicalSkills') ? setItemId(null) : setItemId(id);
+    id === itemId && category !== "technicalSkills"
+      ? setItemId(null)
+      : setItemId(id);
   }
 
   // Change data
@@ -74,7 +76,7 @@ export default function App() {
       cb(copy);
     }
 
-    if (category === 'personalInfo') setPersonalInfo({ ...personalInfo, [key]: value });
+    if (category === "personalInfo") setPersonalInfo({ ...personalInfo, [key]: value });
     if (category === "education") findChangedItem(education, setEducation);
     if (category === "technicalSkills") findChangedItem(technicalSkills, setTechnicalSkills);
     if (category === "workExperience") findChangedItem(workExperience, setWorkExperience);
@@ -96,9 +98,9 @@ export default function App() {
     if (category === "technicalSkills") findItem(technicalSkills, setTechnicalSkills);
     if (category === "workExperience") findItem(workExperience, setWorkExperience);
     if (category === "projectExperience") findItem(projectExperience, setProjectExperience);
-  
+
     // If you delete the selected item, the form will need to be empty
-    if(deletedId === itemId) setItemId(null);
+    if (deletedId === itemId) setItemId(null);
   }
   function addSection(newObj) {
     function pushNewObj(arr, cb) {
@@ -121,7 +123,11 @@ export default function App() {
           <button onClick={reset}>Reset</button>
           <button onClick={loadSample}>Load Example</button>
         </div>
-        <button onClick={selectCategory} data-key="personalInfo">
+        <button
+          onClick={selectCategory}
+          data-key="personalInfo"
+          className="category"
+        >
           Personal Information
         </button>
         {category === "personalInfo" && (
@@ -131,7 +137,11 @@ export default function App() {
             changeSection={changeSection}
           />
         )}
-        <button onClick={selectCategory} data-key="education">
+        <button
+          onClick={selectCategory}
+          data-key="education"
+          className="category"
+        >
           Education
         </button>
         {category === "education" && (
@@ -144,7 +154,11 @@ export default function App() {
             selectItemId={selectItemId}
           />
         )}
-        <button onClick={selectCategory} data-key="technicalSkills">
+        <button
+          onClick={selectCategory}
+          data-key="technicalSkills"
+          className="category"
+        >
           Technical Skills
         </button>
         {category === "technicalSkills" && (
@@ -156,7 +170,11 @@ export default function App() {
             selectItemId={selectItemId}
           />
         )}
-        <button onClick={selectCategory} data-key="workExperience">
+        <button
+          onClick={selectCategory}
+          data-key="workExperience"
+          className="category"
+        >
           Work Experience
         </button>
         {category === "workExperience" && (
@@ -169,7 +187,11 @@ export default function App() {
             selectItemId={selectItemId}
           />
         )}
-        <button onClick={selectCategory} data-key="projectExperience">
+        <button
+          onClick={selectCategory}
+          data-key="projectExperience"
+          className="category"
+        >
           Project Experience
         </button>
         {category === "projectExperience" && (

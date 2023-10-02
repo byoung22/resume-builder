@@ -124,7 +124,8 @@ table {
 }
 :root {
   --secondary-color: #f3f4f6;
-  font-family:'Times New Roman', Times, serif;
+  --secondary-hover: #dbdcdf;
+  font-family: "Times New Roman", Times, serif;
 }
 * {
   box-sizing: border-box;

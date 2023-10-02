@@ -2,7 +2,7 @@ import AddInput from "./AddInput";
 
 export default function InputPersonal({ personalInfo, changeSection }) {
   return (
-    <div className="form">
+    <div className="form section">
       <AddInput
         label={"Full Name: "}
         id={"name"}

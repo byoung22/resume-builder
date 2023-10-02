@@ -1,5 +1,5 @@
 import AddInput from "./AddInput";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 function ExperienceList({ arr, selectItemId, deleteSection }) {
   return arr.map((item) => {
@@ -10,7 +10,9 @@ function ExperienceList({ arr, selectItemId, deleteSection }) {
           <br />
           {item.organization}
         </button>
-        <button onClick={() => deleteSection(item.id)}>-</button>
+        <button onClick={() => deleteSection(item.id)} className="delete">
+          🗑️
+        </button>
       </div>
     );
   });
@@ -35,24 +37,26 @@ export default function InputExperience({
   function addValue() {
     const obj = {
       id: uuidv4(),
-      department: '',
-      organization: '',
-      position: '',
-      startDate: '',
-      endDate: '',
-      description: ''
-    }
-    addSection(obj)
+      department: "",
+      organization: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    };
+    addSection(obj);
   }
   return (
-    <div>
+    <div className="section">
       <ExperienceList
         arr={experience}
         itemId={itemId}
         selectItemId={selectItemId}
         deleteSection={deleteSection}
       />
-      <button onClick={addValue} className="add-button">+</button>
+      <button onClick={addValue} className="add-button">
+        +
+      </button>
       {itemId !== null && (
         <div className="form">
           <AddInput
